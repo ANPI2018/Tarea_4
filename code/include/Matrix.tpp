@@ -425,13 +425,12 @@ namespace anpi
   Matrix<T,Alloc> operator*(const Matrix<T,Alloc>& a,
                             const Matrix<T,Alloc>& b) {
                             
-    assert( (a.cols() == b.rows()) );
+    if( a.cols() != b.rows() )
+    	throw anpi::Exception("Incompatible matrix sizes");
     
     Matrix<T, Alloc> c(a.rows(), b.cols(), anpi::DoNotInitialize);
     ::anpi::aimpl::multiply(a,b,c);
     return c;
-    
-    //assert(false && "Not implemented yet");
   }
 
   // TODO: Solucionar en la Tarea 04 (Punto 1)
