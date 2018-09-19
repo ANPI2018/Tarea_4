@@ -85,7 +85,7 @@ namespace anpi {
     size_t n = A.rows();
     size_t i, j, k, imax = 0;
     T pivot, temp, sum = T(0.0);
-  	permut.reserve(n);
+  	permut.resize(n);
     LU = A;
 
     //Initialize the permutations vector
