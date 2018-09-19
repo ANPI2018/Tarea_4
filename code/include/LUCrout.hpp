@@ -33,6 +33,9 @@ namespace anpi {
                    Matrix<T>& U) {
 
     if (LU.rows() != LU.cols()) throw anpi::Exception("Matrix is not a LU decomposition");
+    
+    L.allocate(LU.rows(), LU.rows());
+    U.allocate(LU.rows(), LU.rows());
 
     for (size_t i = 0; i < LU.rows(); ++i) {
       for (size_t j = 0; j < LU.cols(); ++j) {
@@ -78,10 +81,11 @@ namespace anpi {
                std::vector<size_t>& permut) {
 
     if (A.rows() != A.cols()) throw anpi::Exception("Matrix has to be square");
-
+    
     size_t n = A.rows();
     size_t i, j, k, imax = 0;
     T pivot, temp, sum = T(0.0);
+  	permut.reserve(n);
     LU = A;
 
     //Initialize the permutations vector
