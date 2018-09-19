@@ -84,6 +84,7 @@ namespace anpi {
     T pivot, temp, sum = T(0.0);
     LU = A;
 
+    //Initialize the permutations vector
     for (size_t m = 0; m < n; ++m) {
       permut[m] = m;
     }
@@ -92,7 +93,7 @@ namespace anpi {
       pivot = T(0.0);
       //Search for the pivot
       for (i = j; i < n; ++i) {
-        if ((temp = std::fabs(LU[i][j])) >= pivot) {
+        if (std::abs(temp = LU[i][j]) >= std::abs(pivot)) {
           pivot = temp;
           imax = i;
         }
@@ -117,18 +118,21 @@ namespace anpi {
       }
 
       else if (j > 0 && j < n - 1) {
-        for (i = j; i < n; ++i) {
-          sum = LU[i][j];
-          for (k = 0; k < j; ++k)
-            sum -= LU[i][k] * LU[k][j];
-          LU[i][j] = sum;
-        }
 
+        //Calculate U
         for (k = j + 1; k < n; ++k) {
           sum = LU[j][k];
           for (i = 0; i < j; ++i)
             sum -= LU[j][i] * LU[i][k];
           LU[j][k] = sum / pivot;
+        }
+
+        //Calculate L
+        for (i = j; i < n; ++i) {
+          sum = LU[i][j];
+          for (k = 0; k < j; ++k)
+            sum -= LU[i][k] * LU[k][j];
+          LU[i][j] = sum;
         }
       }
 
@@ -138,6 +142,7 @@ namespace anpi {
           sum -= LU[n - 1][k] * LU[k][n - 1];
         LU[n - 1][n - 1] = sum;
       }
+
     }
   }
 
