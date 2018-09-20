@@ -43,13 +43,13 @@ To run a specific suite of tests
 
 > ./tester -t <suite> -r detailed
 
-	Example: > ./tester -t LU -r detailed
+  Example: > ./tester -t LU -r detailed
 	
 To run a specific test case
 
 > ./tester --run_test=<suite>/<testCase>
 
-	Example: > ./tester --run_test=LU/Crout
+  Example: > ./tester --run_test=LU/Crout
 	
 -----------------------------------------------
          EXECUTION OF BENCHMARKS
@@ -68,13 +68,13 @@ To run all two benchmarks
 
 > ./benchmark -t Matrix -r detailed
 
-	Note: The graph with the results of the 
-				benchmark for the addition of matrices
-				will show up first, after close it, the
-				execution will continue and the graph
-				with the results of the benchmark
-				for the decomposition methods will
-				show up.
+  Note: The graph with the results of the 
+        benchmark for the addition of matrices
+        will show up first, after close it, the
+        execution will continue and the graph
+        with the results of the benchmark
+        for the decomposition methods will
+        show up.
 
 To run the benchmark for the addition of
 matrices
