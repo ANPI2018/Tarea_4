@@ -1,5 +1,5 @@
 -----------------------------------------------
-								COMPILATION
+               COMPILATION
 -----------------------------------------------
 
 Create a directory build:
@@ -23,7 +23,7 @@ And build everything with
 > make
 
 -----------------------------------------------
-						EXECUTION OF TESTS
+            EXECUTION OF TESTS
 -----------------------------------------------
 
 Go into the directory "bin" created after
@@ -52,7 +52,7 @@ To run a specific test case
 	Example: > ./tester --run_test=LU/Crout
 	
 -----------------------------------------------
-					EXECUTION OF BENCHMARKS
+         EXECUTION OF BENCHMARKS
 -----------------------------------------------
 
 Go into the directory "bin" created after
