@@ -42,14 +42,18 @@ namespace anpi {
 	std::size_t matrixSize = LU.rows();
 	for(std::size_t i = 0 ; i < matrixSize; i++){
 		for (std::size_t j = 0 ; j < matrixSize; j++){
-			if(i > j)
+			if(i > j){
 				L[i][j] = LU[i][j];
+				U[i][j] = T(0);
+			}
 			else if (i == j){
-				L[i][j] = 1;
+				L[i][j] = T(1);
 				U[i][j] = LU[i][j];
 			}
-			else
+			else{
 				U[i][j] = LU[i][j];
+				L[i][j] = T(0);
+			}
 		}
 	}
   }
@@ -104,6 +108,7 @@ namespace anpi {
 				permut[row_pivot] = i;
 			}
 		}
+
 		if(pivot == T(0))
 			throw anpi::Exception("Singular matrix");
 		swapRows(LU, i,row_pivot,j);				//Swaps the row with the old pivot with the row of the new one.
