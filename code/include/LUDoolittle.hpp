@@ -101,7 +101,7 @@ namespace anpi {
 		for (std::size_t i_temp = i ; i_temp < matrixSize; ++i_temp){
 			/*Finds the biggest absolute value in the column
 		 		* and sets it as the pivot.*/		
-			if(std::abs(LU(i_temp,j)) > std::abs(pivot)){ 	//A biggest value is found.
+			if(std::abs(LU[i_temp][j]) > std::abs(pivot)){ 	//A biggest value is found.
 				pivot = LU[i_temp][j];			//Changes the pivot.
 				row_pivot = i_temp;			//Sets the row of the element found as the new row of the pivot.
 				permut[i] = permut[row_pivot];  				//Changes the permutation vector.

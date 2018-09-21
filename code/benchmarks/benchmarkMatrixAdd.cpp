@@ -138,7 +138,7 @@ public:
     size_t idx=0;
     for (size_t r=0;r<_maxSize;++r) {
       for (size_t c=0;c<_maxSize;++c) {
-        _data(r,c)=idx++;
+        _data(r,c)=++idx;
       }
     }
   }
@@ -276,10 +276,10 @@ BOOST_AUTO_TEST_CASE( Decomposition ) {
 
 	//Benchmark LUCrout
   { 
-    benchLUCrout<double>  baoc(n);
+    benchLUCrout<double>  blucrout(n);
 
     // Measure on-copy add
-    ANPI_BENCHMARK(sizes,repetitions,times,baoc);
+    ANPI_BENCHMARK(sizes,repetitions,times,blucrout);
     
     ::anpi::benchmark::write("LU_Crout_double.txt",times);
     ::anpi::benchmark::plotRange(times,"Crout (double)","r");
@@ -287,10 +287,10 @@ BOOST_AUTO_TEST_CASE( Decomposition ) {
 
 		//Benchmark LUDoolittle
   /*{
-    benchLUDoolittle<double>  baoc(n);
+    benchLUDoolittle<double>  bldoo(n);
 
     // Measure on-copy add
-    ANPI_BENCHMARK(sizes,repetitions,times,baoc);
+    ANPI_BENCHMARK(sizes,repetitions,times,bldoo);
     
     ::anpi::benchmark::write("LU_Doolittle_double.txt",times);
     ::anpi::benchmark::plotRange(times,"Doolittle (double)","g");
