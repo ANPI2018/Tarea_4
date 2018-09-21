@@ -6,9 +6,12 @@
 
 #include "Exception.hpp"
 #include "Matrix.hpp"
-#include "LUCrout.hpp"
+#include "LU.hpp"
 
 #define TINY 1e-15
+
+#ifndef ANPI_SOLVE_LU_HPP
+#define ANPI_SOLVE_LU_HPP
 
 namespace anpi {
 
@@ -138,12 +141,12 @@ namespace anpi {
     
     //Try to decompose the matrix
     try {
-      luCrout(A, LU, permut);
+      lu(A, LU, permut);
     } catch (anpi::Exception& exc) {
       return false;
     }
 
-    unpackCrout(LU, L, U);
+    unpackDoolittle(LU, L, U);
     permuteVector(bPermut, permut);
 
     std::vector<T> y;
@@ -156,3 +159,5 @@ namespace anpi {
   } // solveLU
 
 }
+
+#endif
