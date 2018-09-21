@@ -135,10 +135,10 @@ public:
   benchLU(const size_t maxSize)
     : _maxSize(maxSize),_data(maxSize,maxSize,anpi::DoNotInitialize) {
 
-    size_t idx=0;
+    size_t idx=2;
     for (size_t r=0;r<_maxSize;++r) {
       for (size_t c=0;c<_maxSize;++c) {
-        _data(r,c)=++idx;
+        _data(r,c)=idx++;
       }
     }
   }
@@ -286,7 +286,7 @@ BOOST_AUTO_TEST_CASE( Decomposition ) {
   }
 
 		//Benchmark LUDoolittle
-  /*{
+  {
     benchLUDoolittle<double>  bldoo(n);
 
     // Measure on-copy add
@@ -294,7 +294,7 @@ BOOST_AUTO_TEST_CASE( Decomposition ) {
     
     ::anpi::benchmark::write("LU_Doolittle_double.txt",times);
     ::anpi::benchmark::plotRange(times,"Doolittle (double)","g");
-  }*/
+  }
   
   ::anpi::benchmark::show();
 }
