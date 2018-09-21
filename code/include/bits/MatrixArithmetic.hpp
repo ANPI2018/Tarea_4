@@ -136,6 +136,15 @@ namespace anpi
       }
     }
 
+	template<typename T, class Alloc>
+	    inline void multiply(const Matrix<T, Alloc>& a, const std::vector<T>& b, std::vector<T>& c){
+	    	for (size_t i=0;i<a.rows();++i){
+	    		c[i]=0;
+	    		for(size_t j=0;j<a.cols();++j){
+	    			c[i]+=a[i][j]*b[j];
+	    		}
+	    	}
+	    }
   } // namespace fallback
 
 
