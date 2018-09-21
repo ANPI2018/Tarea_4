@@ -12,6 +12,7 @@
 
 #include "LUCrout.hpp"
 #include "LUDoolittle.hpp"
+#include "SolveLU.hpp"
 
 #include <iostream>
 #include <exception>
@@ -174,6 +175,6 @@ BOOST_AUTO_TEST_CASE(UnpackDoolittle)
 	anpi::test::unpackTest<float>(anpi::unpackDoolittle<float>, anpi::test::UnpackEnum::unpackDoolittle);
 	anpi::test::unpackTest<double>(anpi::unpackDoolittle<double>, anpi::test::UnpackEnum::unpackDoolittle);
 }
- 
 
 BOOST_AUTO_TEST_SUITE_END()
+

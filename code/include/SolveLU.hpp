@@ -101,7 +101,6 @@ namespace anpi {
     size_t i = n - 1;
 
     for (auto it = x.rbegin(); it != x.rend(); ++it) {
-      std::cout << "test" << std::endl;
       if (i == (n - 1))
         x[i] = y[i] / m[i][i];
       else {
